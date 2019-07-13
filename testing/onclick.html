@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>RaiseJS/DOM Testing Environment</title>
+</head>
+<body>
+	<button id="clickme" type="button">Click me</button>
+	<script src="../../raisejs-core/js/min.poly.core.js"></script>
+	<script src="../js/min.poly.dom.js"></script>
+	<script>
+		$().ready(function() {
+			$("#clickme").on("click", function() {
+				$("#clickme").css("padding", "100px");
+				$("#clickme").html("You´ve clicked me! :)");
+			});
+		});
+	</script>
+</body>
+</html>
