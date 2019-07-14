@@ -13,8 +13,9 @@
 	<script>
 		$().ready(function() {
 			$("#clickme").on("click", function() {
-				$("#clickme").css("padding", "100px");
+				$("#clickme").css("padding", "100px").css("margin" ,"20px");
 				$("#clickme").html("You´ve clicked me! :)");
+				console.log($("#clickme").css("padding"));
 			});
 		});
 	</script>

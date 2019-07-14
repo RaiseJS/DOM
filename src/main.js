@@ -28,15 +28,14 @@
 		} else {
 			if (typeof v === "undefined" || v === null) {
 				let r = [];
-				this.each(function(el, i) {
-					r.push(window.getComputedStyle(el, null).getPropertyValue(k));
+				this.each(function(el) {
+					el.style[k] == "" ? r.push(window.getComputedStyle(el, null).getPropertyValue(k)) : r.push(el.style[k]);
 				});
 				return r;
 			} else {
-				this.each(function(el) {
+				return this.each(function(el) {
 					el.style.setProperty(k, v);
 				});
-				return true;
 			}
 		}
 	};
@@ -48,10 +47,9 @@
 			});
 			return r;
 		} else {
-			this.each(function(el) {
+			return this.each(function(el) {
 				el.innerHTML = html;
 			});
-			return true;
 		}
 	};
 	$.fn.val = function(value) {
@@ -62,10 +60,9 @@
 			});
 			return r;
 		} else {
-			this.each(function(el) {
+			return this.each(function(el) {
 				el.value = value;
 			});
-			return true;
 		}
 	};
 	$.fn.attr = function(k, v) {
@@ -83,52 +80,45 @@
 				});
 				return r;
 			} else {
-				this.each(function(el) {
+				return this.each(function(el) {
 					el.setAttribute(k, v);
 				});
-				return true;
 			}
 		}
 	};
 	$.fn.removeAttr = function(c) {
-		this.each(function(el) {
+		return this.each(function(el) {
 			el.removeAttribute(c);
 		});
-		return true;
 	};
 	$.fn.toggleClass = function(cl) {
-		this.each(function(el) {
+		return this.each(function(el) {
 			el.classList.toggle(cl);
 		});
-		return true;
 	};
 	$.fn.addClass = function(cl) {
-		this.each(function(el) {
+		return this.each(function(el) {
 			el.classList.add(cl);
 		});
-		return true;
 	};
 	$.fn.removeClass = function(cl) {
-		this.each(function(el) {
+		return this.each(function(el) {
 			el.classList.remove(cl);
 		});
-		return true;
 	};
 	$.fn.on = function(en, eh) {
-		this.each(function(el) {
+		return this.each(function(el) {
 			el.addEventListener(en, eh);
 		});
-		return true;
 	};
 	$.fn.off = function(en, eh) {
-		this.each(function(el) {
+		return this.each(function(el) {
 			el.removeEventListener(en, eh);
 		});
-		return true;
 	};
 	$.fn.trigger = function(ev) {
       	let event = new Event(ev);
-      	this.each(function(el) {
+      	return this.each(function(el) {
 			el.dispatchEvent(event);
 		});
 	};
