@@ -14,6 +14,30 @@ Grow beyond competition and watch your page load times shrink - not skyrocket.
 We recommend setting up new, RaiseJS-based projects with RaiseJS/cli, a commmand-line interface allowing everybody
 to quickly jump into a full-fledged development environment with a innovative folder structure and clear, leading-edge guidelines.
 
+### What features does RaiseJS/DOM add to your frontend? :satisfied:
+RaiseJS/DOM brings many popular jQuery DOM features to our beloved ecosystem. This includes:
+
+ * $(_selector_).css(key: _required_, value: _optional_)
+ * $(_selector_).attr(key: _required_, value: _optional_)
+ * $(_selector_).val(value: _required_)
+ * $(_selector_).html(html: _required_)
+ * $(_selector_).removeAttr(attribute: _required_)
+ * $(_selector_).toggleClass(class: _required_)
+ * $(_selector_).addClass(class: _required_)
+ * $(_selector_).removeClass(class: _required_)
+ * $(_selector_).on(event: _required_, handler: _required_)
+ * $(_selector_).off(value: _required_, handler: _required_)
+ * $(_selector_).trigger(event: _required_)
+
+All Functions which don´t return a value (this includes `$().css` and `.attr` with two parameters) are chainable.
+If a function expected more parameters, `false` is returned.
+
+### How do we guarantee that this library won´t explode in size as jQuery did?
+This library, @RaiseJS/DOM, has a minified size limit of **5** KB.
+All commits/pulls which would result in a higher file size are rejected.
+The minified size target for this library is **3** KB.
+All contributors try to stick to this target by **only** adding features that specifically belong to the purpose of this library and are **necessary** for further use.
+
 ### How can I install this? :sunglasses:
 It´s easy. Either setup your environment through our command-line interface @RaiseJS/cli, or go install this dependency via `yarn` or `npm`:<br/>
 ```
@@ -44,9 +68,10 @@ In the `/src` folder, you will find the one-and-only source of truth: `main.js`.
 This code is then compiled into the `/js` to the library we all know and love :blush:<br/>
 Make sure to comment all changes and, if necessary, change the [README.MD](README.MD) accordingly!<br/>
 
-### Before commiting
+### Before pulling
 Make sure you´ve tested the functionality of the source code by compiling it (`npm run build` / `yarn run build`)<br/>
 and checking all tests in `/testing`. Additionally, if the Jest unit testing framework is already setup, run `npm run test`<br/>
-and see if everything remains fine!<br/>
+and see if everything remains fine! Of course, you as a contributor should stick to the `minified size target value` of **3** KB for this project
+and never exceed a size of **5** KB, which is the **minified size limit**. <br/>
 
 ## Thanks for sticking around! Now build something great :heart:
